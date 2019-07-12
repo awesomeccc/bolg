@@ -7,6 +7,8 @@ import 'lib-flexible/flexible';
 import VueLazyLoad from 'vue-lazyload'
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 import {
   Button,
@@ -22,7 +24,13 @@ import {
   DropdownItem,
   Pagination,
   Tag,
-  Icon
+  Icon,
+  Carousel,
+  CarouselItem,
+  Col,
+  Card,
+  Row
+
 } from 'element-ui';
 
 Vue.use(Button);
@@ -38,6 +46,11 @@ Vue.use(DropdownItem);
 Vue.use(Pagination);
 Vue.use(Tag);
 Vue.use(Icon);
+Vue.use(Carousel);
+Vue.use(CarouselItem)
+Vue.use(Col)
+Vue.use(Card)
+Vue.use(Row)
 
 Vue.prototype.$message = Message;
 

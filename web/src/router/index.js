@@ -40,7 +40,7 @@ export default new Router({
       // 关于我
       path: '/keyword',
       component(resolve) {
-        require(['../views/Headers/Search.vue'], resolve);
+        require(['../components/music/SongList.vue'], resolve);
       }
     },
     {
