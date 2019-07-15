@@ -4,18 +4,20 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-// 哈斯
+  // 哈斯
   mode: 'history',
   scrollBehavior(to, from, savedPosition) {
     // 兼容
     if (savedPosition) {
       return savedPosition
     } else {
-      return {x: 0, y: 0}
+      return {
+        x: 0,
+        y: 0
+      }
     }
   },
-  routes: [
-    {
+  routes: [{
       // 文章列表
       path: '/',
       component(resolve) {
@@ -40,9 +42,31 @@ export default new Router({
       // 关于我
       path: '/keyword',
       component(resolve) {
-        require(['../components/music/SongList.vue'], resolve);
+        require(['../components/music/Test.vue'], resolve);
       }
     },
+    {
+      // 关于我
+      path: '/keyword1',
+      component(resolve) {
+        require(['../components/music/Recommend.vue'], resolve);
+      }
+    },
+
+    {
+      // 关于我
+      path: '/music',
+      component(resolve) {
+        require(['../views/music/MusicHeader.vue'], resolve);
+      }
+    },
+    {
+      path: '/music/:id',
+      component(resolve) {
+        require(['../views/music/PlayerAll.vue'], resolve);
+      }
+    },
+
     {
       // 关于我
       path: '/player',
@@ -62,18 +86,19 @@ export default new Router({
       component(resolve) {
         require(['../views/Headers/HeadersAll.vue'], resolve);
       },
-      children: [
-        {
-          //todo: 首页
-          path: '/',
-          name: 'index',
-          meta: {module: "/", title: '首页'},
-          component(resolve) {
-            require(['../views/article/list.vue'], resolve);
-          }
+      children: [{
+        //todo: 首页
+        path: '/',
+        name: 'index',
+        meta: {
+          module: "/",
+          title: '首页'
         },
-    ]
-   }
+        component(resolve) {
+          require(['../views/article/list.vue'], resolve);
+        }
+      }, ]
+    }
   ]
   // routes: [
   //   { path: '/', 

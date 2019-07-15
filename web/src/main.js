@@ -9,6 +9,8 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import infiniteScroll from 'vue-infinite-scroll'
+
 
 import {
   Button,
@@ -51,6 +53,7 @@ Vue.use(CarouselItem)
 Vue.use(Col)
 Vue.use(Card)
 Vue.use(Row)
+Vue.use(infiniteScroll)
 
 Vue.prototype.$message = Message;
 

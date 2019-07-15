@@ -24,9 +24,9 @@ export default {
         },
          {
           key: '02',
-          name: '归档',
+          name: '音乐',
           icon: '&#xe61b;',
-          path: '/list'
+          path: '/music'
         },
          {
           key: '03',
