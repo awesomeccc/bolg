@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-carousel :interval="4000" type="card" height="260px">
+    <el-carousel :interval="4000" type="card">
       <el-carousel-item v-for="item in recommends" :key="item.id">
         <a :href="item.linkUrl">
           <img class="needsclick"  :src="item.picUrl">
@@ -52,5 +52,6 @@ export default {
 
 .needsclick {
   width: 100%;
+  height: 100%;
 }
 </style>

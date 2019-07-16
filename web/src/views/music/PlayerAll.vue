@@ -32,6 +32,7 @@ export default {
   width: 100%;
   height: 100%;
   position: relative;
+  margin-bottom: 25px
 }
 .left {
   position: absolute;
@@ -41,14 +42,14 @@ export default {
   color: #fff;
 }
 .main {
-  height: 200px;
+  height: 1000px;
   margin: 0px 35%;
   background-color: green;
 }
 .right {
   position: absolute;
   width: 25%;
-  height: 750px;
+  height: 1000px;
   right: 0;
   top: 0;
   background-color: blue;

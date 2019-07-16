@@ -6,7 +6,8 @@ const state = {
   playList: [],
   isLoading: true,
   disc: {},
-  currentIndex: 0
+  currentIndex: 0,
+  playing: false
 }
 
 const mutations = {
@@ -19,6 +20,14 @@ const mutations = {
   },
   SET_CURRENT_INDEX(state,index){
     state.currentIndex = index
+  },
+  SET_PLAYING_STATE(state, flag) {
+    state.playing = flag
+  },
+  SET_PLAYLIST_URL(state, keyUrl) {
+    let index = keyUrl.index
+    let url = keyUrl.url
+    state.playList[index].url = url
   }
 
 
@@ -35,6 +44,9 @@ const getters = {
   },
   currentSong  (state)  {
     return state.playList[state.currentIndex] || {}
+  },
+  playing(state) {
+    return state.playing
   }
 }
 const actions = {

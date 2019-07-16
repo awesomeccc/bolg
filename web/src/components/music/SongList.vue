@@ -1,14 +1,19 @@
 <template>
   <div>
-    <el-card class="box-card" ref = "song"  shadow="never">
+    <el-card class="box-card" ref="song" shadow="never">
       <div slot="header" class="clearfix">
         <h3>{{title}}</h3>
         <el-button style="float: right; padding: 3px 0" type="text">操作按钮</el-button>
         <!-- <span>{{desc}}</span> -->
       </div>
       <ul class="list" v-infinite-scroll="load" infinite-scroll-disabled="disabled">
-        <li v-for="(o, index) in songList" :key="index" class="text item"
-        @click="selectItem(index)">
+        <el-divider></el-divider>
+        <li
+          v-for="(o, index) in songList"
+          :key="index"
+          class="text item"
+          @click="selectItem(o,index)"
+        >
           {{ index+1+':'+o.name }} -----
           {{ o.singer }}-----
           {{ format(o.duration) }}
@@ -22,7 +27,7 @@
 </template>
 
 <script>
-import { getSongList } from "../../api/music/recommend.js";
+import { getSongList, getplaysongvkey } from "../../api/music/recommend.js";
 import { createSong } from "../../api/music/common/createSong.js";
 import { mapMutations } from "vuex";
 import { mapGetters } from "vuex";
@@ -33,7 +38,8 @@ export default {
       songList: [],
       count: 10,
       countAll: 0,
-      loading: false
+      loading: false,
+      currentIndex: 0
     };
   },
   created() {
@@ -53,22 +59,35 @@ export default {
     //     console.log(createSong(data.songlist));
     //   });
     // },
-    selectItem(index){
-      this.setIndex(index)
-  
-  },
+    selectItem(item, index) {
+      if (index !== this.currentIndex) {
+         this.currentIndex = index;
+        getplaysongvkey(item.mid).then(vkey => {
+          let url = `http://dl.stream.qqmusic.qq.com/${vkey}`;
+          console.log(url);
+          this.setPlayUrl({
+            index,
+            url
+          });
+        });
+        this.setIndex(index);
+        this.setPlayingState(false);
+      }else {
+        return 
+      }
+    },
     load() {
       this.loading = true;
       setTimeout(() => {
         this.count += 2;
         this.songList.push({
-          name:'无限加载模拟数据'
-        })
+          name: "无限加载模拟数据"
+        });
         this.loading = false;
       }, 1000);
     },
     _getSongList() {
-     // console.log(this.disc);
+      // console.log(this.disc);
       if (!this.disc.dissid) {
         this.$router.push("/music");
         return;
@@ -76,10 +95,10 @@ export default {
       getSongList(this.disc.dissid).then(res => {
         if (res.code === 0) {
           this.songList = this._normalizeSongs(res.cdlist[0].songlist);
-          this.countAll = this.songList.length
-          this.$refs.song.$el.style.height = window.innerHeight -30 + 'px'
-          console.log(this.songList);
-          this.setPlayList(this.songList)
+          this.countAll = this.songList.length;
+          this.$refs.song.$el.style.height = window.innerHeight - 30 + "px";
+          //console.log(this.songList);
+          this.setPlayList(this.songList);
           // console.log(this.countAll)
           // console.log(this.$refs.song)
         }
@@ -113,7 +132,9 @@ export default {
     },
     ...mapMutations({
       setPlayList: "music/SET_PLAYLIST",
-      setIndex: 'music/SET_CURRENT_INDEX'
+      setIndex: "music/SET_CURRENT_INDEX",
+      setPlayUrl: "music/SET_PLAYLIST_URL",
+      setPlayingState: "music/SET_PLAYING_STATE"
     })
   },
   computed: {
@@ -125,14 +146,14 @@ export default {
       return this.disc.dissname;
     },
     noMore() {
-      return this.count >= this.countAll+5;
+      return this.count >= this.countAll + 5;
     },
     disabled() {
       return this.loading || this.noMore;
-    },
+    }
     // songHeight() {
     //   return this.$refs.innerHeight
-    // console.log(this.$refs.innerHeight)  
+    // console.log(this.$refs.innerHeight)
     // }
   }
 };
@@ -141,6 +162,10 @@ export default {
 <style>
 .text {
   font-size: 14px;
+  width: 550px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .item {

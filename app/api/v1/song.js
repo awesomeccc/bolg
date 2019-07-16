@@ -17,13 +17,13 @@ router.get('/getDiscList',  async (ctx)=> {
 
     
     ctx.body = res.data
-    console.log(res)
-    console.log(1)
+   // console.log(res)
+    //console.log(1)
   
 })
 
 router.get('/getSongList',async (ctx)=> {
-  console.log('getSongList')
+  //console.log('getSongList')
   const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
 let res = await axios.get(url, {
     headers: {
@@ -40,6 +40,17 @@ let res = await axios.get(url, {
       ret = JSON.parse(matches[1])
       ctx.body = ret
   }}
+})
+router.get('/getplaysongvkey', async(ctx)=> {
+  const url = 'https://u.y.qq.com/cgi-bin/musicu.fcg'
+ let res =await axios.get(url, {
+    headers: {
+      origin: 'https://y.qq.com',
+      referer: 'https://y.qq.com/portal/player.html'
+    },
+    params: ctx.query
+  })
+  ctx.body = res.data
 })
 
 module.exports = router

@@ -31,7 +31,8 @@ import {
   CarouselItem,
   Col,
   Card,
-  Row
+  Row,
+  Divider
 
 } from 'element-ui';
 
@@ -54,6 +55,7 @@ Vue.use(Col)
 Vue.use(Card)
 Vue.use(Row)
 Vue.use(infiniteScroll)
+Vue.use(Divider)
 
 Vue.prototype.$message = Message;
 
