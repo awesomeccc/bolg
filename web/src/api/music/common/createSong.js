@@ -1,5 +1,5 @@
 export default class Song {
-  constructor({id, mid, singer, name, album, duration, image, url}) {
+  constructor({id, mid, singer, name, album, duration, image, url,lyric}) {
     this.id = id
     this.mid = mid
     this.singer = singer
@@ -8,6 +8,23 @@ export default class Song {
     this.duration = duration
     this.image = image
     this.url = url
+    this.lyric = lyric || ''
+  }
+  getLyric() {
+    if (this.lyric) {
+      return Promise.resolve(this.lyric)
+    }
+
+    return new Promise((resolve, reject) => {
+      getLyric(this.mid).then((res) => {
+        if (res.retcode === ERR_OK) {
+          this.lyric = Base64.decode(res.lyric)
+          resolve(this.lyric)
+        } else {
+          reject('no lyric')
+        }
+      })
+    })
   }
 
 }

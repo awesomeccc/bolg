@@ -18,10 +18,9 @@
         <el-button type="primary" icon="el-icon-d-arrow-right" circle @click="next"></el-button>
       </el-row>
                 <span class="time time-l">{{format(currentTime)}}</span>
-            <!-- <div class="progress-bar-wrapper">
-              <progress-bar :percent="percent" @percentChange="onProgressBarChange"></progress-bar>
-            </div> -->
+        
             <span class="time time-r">{{format(currentSong.duration)}}</span>
+            <progress-bar :percent="percent" @percentChange="onProgressBarChange"></Progress-bar>
     </div>
     <audio ref="audio" :src="currentSong.url"  @play="ready" @error="error" 
     @timeupdate="updateTime"></audio>
@@ -30,23 +29,34 @@
 <script>
 // import { mapGetters } from "vuex";
 import { mapGetters, mapMutations, mapActions } from "vuex";
+ import ProgressBar from './progressBar.vue'
+
 export default {
   data() {
     return {
       list: {},
       songReady: false,
       currentTime: 0,
+     currentLyric: null,
+        currentLineNum: 0,
+        currentShow: 'cd',
+        playingLyric: ''
     };
   },
+  components: {
+    ProgressBar
+  },
   methods: {
-    //   getCurrentSong() {
-    //     this.list = this.currentSong;
-    //      console.log(this.currentSong);
-    //     console.log(this.list);
-    //   }
-    // },
-    // created() {
-    //   this.getCurrentSong();
+          onProgressBarChange(percent) {
+        const currentTime = this.currentSong.duration * percent
+        this.$refs.audio.currentTime = currentTime
+        if (!this.playing) {
+          this.togglePlaying()
+        }
+        // if (this.currentLyric) {
+        //   this.currentLyric.seek(currentTime * 1000)
+        // }
+      },
     togglePlaying() {
       // if (!this.songReady) {
       //   return
@@ -134,6 +144,9 @@ export default {
      playIcon() {
         return this.playing ? 'el-icon-video-pause' : 'el-icon-video-play'
       },
+    percent() {
+        return this.currentTime / this.currentSong.duration
+      },
   },
   watch: {
     playing(newPlaying) {
@@ -160,7 +173,7 @@ export default {
   padding: relative;
 }
 .img-container {
-  margin: 80px;
+  margin: 60px;
 }
 /* .background {
   position: absolute;

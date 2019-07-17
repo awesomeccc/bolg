@@ -27,10 +27,15 @@
 </template>
 
 <script>
-import { getSongList, getplaysongvkey } from "../../api/music/recommend.js";
+import {
+  getSongList,
+  getplaysongvkey,
+  getLyric
+} from "../../api/music/recommend.js";
 import { createSong } from "../../api/music/common/createSong.js";
 import { mapMutations } from "vuex";
 import { mapGetters } from "vuex";
+import { Base64 } from "js-base64";
 
 export default {
   data() {
@@ -39,7 +44,9 @@ export default {
       count: 10,
       countAll: 0,
       loading: false,
-      currentIndex: 0
+      currentIndex: 0,
+      lyric: '',
+      mid: ""
     };
   },
   created() {
@@ -59,21 +66,37 @@ export default {
     //     console.log(createSong(data.songlist));
     //   });
     // },
-    selectItem(item, index) {
-      if (index !== this.currentIndex) {
-         this.currentIndex = index;
-        getplaysongvkey(item.mid).then(vkey => {
-          let url = `http://dl.stream.qqmusic.qq.com/${vkey}`;
-          console.log(url);
-          this.setPlayUrl({
-            index,
-            url
-          });
+ getLyric() {
+
+      return new Promise((resolve, reject) => {
+        getLyric(this.mid).then(res => {
+          if (res.retcode === 0) {
+            this.lyric = Base64.decode(res.lyric);
+            resolve(this.lyric);
+          } else {
+            reject("no lyric");
+          }
         });
+      });
+    },
+    async selectItem(item, index) {
+   
+      if (index !== this.currentIndex) {
         this.setIndex(index);
+        this.currentIndex = index;
+        this.mid = item.mid;
+     let vkey =   await  getplaysongvkey(item.mid)
+     let  url = `http://dl.stream.qqmusic.qq.com/${vkey}`;
+     let lyric = await  this.getLyric()
+        this.setPlayUrl({
+          index,
+          url,
+          lyric
+        });
+       //e this.setIndex(index);
         this.setPlayingState(false);
-      }else {
-        return 
+      } else {
+        return;
       }
     },
     load() {
@@ -96,7 +119,7 @@ export default {
         if (res.code === 0) {
           this.songList = this._normalizeSongs(res.cdlist[0].songlist);
           this.countAll = this.songList.length;
-          this.$refs.song.$el.style.height = window.innerHeight - 30 + "px";
+          this.$refs.song.$el.style.height = window.innerHeight - 120 + "px";
           //console.log(this.songList);
           this.setPlayList(this.songList);
           // console.log(this.countAll)
@@ -162,7 +185,7 @@ export default {
 <style>
 .text {
   font-size: 14px;
-  width: 550px;
+  width: 500px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

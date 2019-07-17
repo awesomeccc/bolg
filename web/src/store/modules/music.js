@@ -27,7 +27,9 @@ const mutations = {
   SET_PLAYLIST_URL(state, keyUrl) {
     let index = keyUrl.index
     let url = keyUrl.url
+    let lyric = keyUrl.lyric
     state.playList[index].url = url
+    state.playList[index].lyric = lyric
   }
 
 

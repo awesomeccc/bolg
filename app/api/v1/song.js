@@ -53,4 +53,28 @@ router.get('/getplaysongvkey', async(ctx)=> {
   ctx.body = res.data
 })
 
+router.get('/lyric',async (ctx) => {
+  var url = 'https://c.y.qq.com/lyric/fcgi-bin/fcg_query_lyric_new.fcg'
+
+ let res = await axios.get(url, {
+    headers: {
+      referer: 'https://c.y.qq.com/',
+      host: 'c.y.qq.com'
+    },
+    params: ctx.query
+  })
+  var ret = res.data
+  // console.log(ret)
+  if (typeof ret === 'string') {
+    var reg = /^\w+\(({[^()]+})\)$/
+    var matches = ret.match(reg)
+    if (matches) {
+      ret = JSON.parse(matches[1])
+      // console.log(ret)
+     
+    }
+  }
+  ctx.body = ret
+})
+
 module.exports = router

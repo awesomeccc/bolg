@@ -8,7 +8,7 @@
       <player></player>
     </div>
 
-    <dir class="right"></dir>
+    <div class="right"></div>
   </div>
 </template>
 <script>
@@ -38,18 +38,20 @@ export default {
   position: absolute;
   left: 0;
   top: 0;
-  background-color: black;
+  // background-color: black;
   color: #fff;
 }
 .main {
-  height: 1000px;
+
+  // height: 880PX;
   margin: 0px 35%;
   background-color: green;
+  padding-bottom: 15px;
 }
 .right {
   position: absolute;
   width: 25%;
-  height: 1000px;
+  // height: 880PX;
   right: 0;
   top: 0;
   background-color: blue;
