@@ -6,7 +6,7 @@ const state = {
   playList: [],
   isLoading: true,
   disc: {},
-  currentIndex: 0,
+  currentIndex: -1,
   playing: false
 }
 
@@ -49,6 +49,9 @@ const getters = {
   },
   playing(state) {
     return state.playing
+  },
+  currentLyric (state) {
+    return state.playList[state.currentIndex].lyric || '暂无歌词'
   }
 }
 const actions = {

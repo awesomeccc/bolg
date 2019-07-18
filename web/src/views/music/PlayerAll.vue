@@ -8,12 +8,14 @@
       <player></player>
     </div>
 
-    <div class="right"></div>
+    <div class="right"> <lyric></lyric></div>
+   
   </div>
 </template>
 <script>
 import SongList from "../../components/music/songList.vue";
 import Player from "../../components/music/Player.vue";
+import Lyric from "../../components/music/Lyric.vue";
 
 export default {
   name: "PlayerAll",
@@ -23,7 +25,8 @@ export default {
   methods: {},
   components: {
     SongList,
-    Player
+    Player,
+    Lyric
   }
 };
 </script>
@@ -44,16 +47,18 @@ export default {
 .main {
 
   // height: 880PX;
+  height: 780px;
   margin: 0px 35%;
   background-color: green;
   padding-bottom: 15px;
 }
 .right {
   position: absolute;
-  width: 25%;
-  // height: 880PX;
+  width: 30%;
+  height: 750px;
   right: 0;
   top: 0;
-  background-color: blue;
+  background-color: skyblue;
+  overflow: auto ;
 }
 </style>

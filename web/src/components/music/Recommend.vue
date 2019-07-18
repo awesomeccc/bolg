@@ -18,7 +18,6 @@
       </el-col>
     </el-row>
     <loading v-show="!listItem.length"></loading>
-    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -35,9 +34,9 @@ export default {
   methods: {
     _getDiscList() {
       getDiscList().then(res => {
-        console.log(res);
+       // console.log(res);
         if (res.code === 0) {
-          console.log(res);
+          //console.log(res);
           this.listItem = res.data.list;
         } else {
           console.log("歌单请求失败");

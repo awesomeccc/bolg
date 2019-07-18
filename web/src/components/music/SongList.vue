@@ -53,19 +53,6 @@ export default {
     this._getSongList();
   },
   methods: {
-    // _getSongList(k) {
-    //   getSongList(k).then(res => {
-    //     const data = res.cdlist[0];
-    //     this.title = data.dissname;
-    //     this.desc = data.desc;
-    //     this.logoUrl = data.logo;
-    //     this.songList = data.songlist;
-    //     this.duration = data.interval;
-    //     this.setPlayList(1);
-    //     // console.log(res);
-    //     console.log(createSong(data.songlist));
-    //   });
-    // },
  getLyric() {
 
       return new Promise((resolve, reject) => {
@@ -169,7 +156,7 @@ export default {
       return this.disc.dissname;
     },
     noMore() {
-      return this.count >= this.countAll + 5;
+      return this.count >= this.countAll + 2;
     },
     disabled() {
       return this.loading || this.noMore;
@@ -185,7 +172,7 @@ export default {
 <style>
 .text {
   font-size: 14px;
-  width: 500px;
+  width: 450px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;

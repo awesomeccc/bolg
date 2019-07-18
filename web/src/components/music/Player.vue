@@ -1,9 +1,5 @@
-<template>
+/* <template>
   <div class="player">
-    <!-- <div class="background">
-      <img :src="currentSong.image" alt>
-    </div>-->
-
     <h3 class="header">{{currentSong.name}}---{{currentSong.singer}}</h3>
     <hr>
     <p class="album">{{currentSong.album}}</p>
@@ -17,8 +13,7 @@
         <el-button type="primary"  circle @click.stop="togglePlaying" :class="playIcon"></el-button>
         <el-button type="primary" icon="el-icon-d-arrow-right" circle @click="next"></el-button>
       </el-row>
-                <span class="time time-l">{{format(currentTime)}}</span>
-        
+            <span class="time time-l">{{format(currentTime)}}</span>
             <span class="time time-r">{{format(currentSong.duration)}}</span>
             <progress-bar :percent="percent" @percentChange="onProgressBarChange"></Progress-bar>
     </div>
@@ -38,9 +33,9 @@ export default {
       songReady: false,
       currentTime: 0,
      currentLyric: null,
-        currentLineNum: 0,
-        currentShow: 'cd',
-        playingLyric: ''
+     currentLineNum: 0,
+    currentShow: 'cd',
+    playingLyric: ''
     };
   },
   components: {
@@ -50,6 +45,7 @@ export default {
           onProgressBarChange(percent) {
         const currentTime = this.currentSong.duration * percent
         this.$refs.audio.currentTime = currentTime
+      //  console.log(this.currentTime)
         if (!this.playing) {
           this.togglePlaying()
         }
@@ -63,7 +59,7 @@ export default {
       // }
       this.setPlayingState(!this.playing);
       this.songReady =false
-      console.log(this.playing);
+     // console.log(this.playing);
       // if (this.currentLyric) {
       //   this.currentLyric.togglePlay()
       // }
@@ -189,3 +185,4 @@ export default {
   text-align: center;
 }
 </style>
+ */

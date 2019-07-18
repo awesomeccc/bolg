@@ -8,7 +8,7 @@ export default class Song {
     this.duration = duration
     this.image = image
     this.url = url
-    this.lyric = lyric || ''
+    this.lyric = lyric || '暂无歌词'
   }
   getLyric() {
     if (this.lyric) {
