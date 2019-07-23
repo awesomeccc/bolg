@@ -46,17 +46,37 @@ export default {
       loading: false,
       currentIndex: 0,
       lyric: '',
-      mid: ""
+      mid: "",
+      firstLoad: 6
     };
   },
   created() {
     this._getSongList();
+    //this.getData()
+  },
+  mounted(){
+    // this.selectItem(this.songlist[this.firstLoad],this.firstLoad)
+        // console.log(this.songList)
+        // this.getData()
   },
   methods: {
- getLyric() {
+    // getData(){
+    // console.log(this.songList)
+    // },
+ getLyric(mid) {
 
       return new Promise((resolve, reject) => {
-        getLyric(this.mid).then(res => {
+        if(mid){
+               getLyric(mid).then(res => {
+          if (res.retcode === 0) {
+            this.lyric = Base64.decode(res.lyric);
+            resolve(this.lyric);
+          } else {
+            reject("no lyric");
+          }
+        })
+        }else{
+            getLyric(this.mid).then(res => {
           if (res.retcode === 0) {
             this.lyric = Base64.decode(res.lyric);
             resolve(this.lyric);
@@ -64,28 +84,44 @@ export default {
             reject("no lyric");
           }
         });
+        }
       });
     },
     async selectItem(item, index) {
    
-      if (index !== this.currentIndex) {
-        this.setIndex(index);
-        this.currentIndex = index;
+    //   if (index !== this.currentIndex && this.currentLyric.lines == null) {
+    //     this.setIndex(index);
+    //     this.currentIndex = index;
+    //     this.mid = item.mid;
+    //  let vkey =   await  getplaysongvkey(item.mid)
+    //  let  url = `http://dl.stream.qqmusic.qq.com/${vkey}`;
+    //  let lyric = await  this.getLyric()
+    //     this.setPlayUrl({
+    //       index,
+    //       url,
+    //       lyric
+    //     });
+    //    //e this.setIndex(index);
+    //     this.setPlayingState(false);
+    //   } else {
+    //     return;
+    //   }
+    this.setIndex(index);
+     this.setPlayingState(false);
+    },
+     async loadAll(item, index) {
         this.mid = item.mid;
      let vkey =   await  getplaysongvkey(item.mid)
      let  url = `http://dl.stream.qqmusic.qq.com/${vkey}`;
-     let lyric = await  this.getLyric()
+     let lyric = await  this.getLyric(item.mid)
         this.setPlayUrl({
           index,
           url,
           lyric
         });
        //e this.setIndex(index);
-        this.setPlayingState(false);
-      } else {
-        return;
-      }
-    },
+       // this.setPlayingState(false);
+      } ,
     load() {
       this.loading = true;
       setTimeout(() => {
@@ -103,15 +139,26 @@ export default {
         return;
       }
       getSongList(this.disc.dissid).then(res => {
-        if (res.code === 0) {
+      return new Promise((resolve)=>{
+          if (res.code === 0) {
           this.songList = this._normalizeSongs(res.cdlist[0].songlist);
+          // console.log(this.songList)
           this.countAll = this.songList.length;
           this.$refs.song.$el.style.height = window.innerHeight - 120 + "px";
           //console.log(this.songList);
           this.setPlayList(this.songList);
+        
+         
           // console.log(this.countAll)
           // console.log(this.$refs.song)
         }
+        resolve(this.songList)
+      })
+      }).then(res=>{
+        res.forEach((item,index)=>{
+          this.loadAll(item,index)
+        })
+       
       });
     },
     _normalizeSongs(list) {
@@ -150,7 +197,8 @@ export default {
   computed: {
     ...mapGetters({
       // map `this.doneCount` to `this.$store.getters.doneTodosCount`
-      disc: "music/isDisc"
+      disc: "music/isDisc",
+      currentLyric: "music/currentLyric",
     }),
     title() {
       return this.disc.dissname;
