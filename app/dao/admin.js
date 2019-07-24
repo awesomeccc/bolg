@@ -64,6 +64,23 @@ class AdminDao {
 
         return admin
     }
+
+    //查询openid
+    static async getUserByOpenid(openid){
+        const user = await Admin.findOne({
+            where:{
+                openid
+            }
+        })
+        return user
+    }
+
+    //注册openid
+    static async registerByOpenid(openid) {
+        return await Admin.create({
+            openid
+        })
+    }
 }
 
 module.exports = {

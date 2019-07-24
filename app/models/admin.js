@@ -33,6 +33,10 @@ Admin.init({
             this.setDataValue("password", psw);
         }
     },
+    openid: {
+        type: Sequelize.STRING(64),
+        unique: true
+    },
     created_at: {
         type: Sequelize.DATE,
         get() {

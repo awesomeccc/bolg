@@ -23,5 +23,6 @@ console.log(window.b) // 20
 console.log(window.c) // 30
 //后端,读取API,
 //悲观锁,乐观锁 事务 脏读   
-//中间件返回的是个promise
+//中间件返回的是个promise  
 //return  abs next('abs')
+//reflect 观察者模式
