@@ -42,13 +42,24 @@ class Auth {
                 errMsg = "权限不足"
                 throw new global.errs.Forbidden(errMsg);
             }
-
+           // console.log('decode是',decode)
             ctx.auth = {
                 uid: decode.uid,
                 scope: decode.scope
             }
 
             await next()
+        }
+    }
+
+    //验证token
+    static verifyToken(token) {
+        try{
+            jwt.verify(token,global.config.security.secretKey)
+            return true
+        }
+        catch(error) {
+            return false
         }
     }
 

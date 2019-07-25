@@ -17,6 +17,11 @@ class Resolve {
     }
 }
 
+function success(msg,errorCode){
+    throw new global.errs.Success(msg, errorCode)
+}
+
 module.exports = {
-    Resolve
+    Resolve,
+    success
 }
