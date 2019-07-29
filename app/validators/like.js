@@ -28,6 +28,10 @@ class LikeValidator extends PositiveIntegerValidator {
   }
 }
 
+class ClassicValidator extends LikeValidator {
+
+}
+
 function checkArtType(vals) {
   let type = vals.body.type || vals.path.type
   if (!type) {
@@ -42,5 +46,6 @@ function checkArtType(vals) {
 
 module.exports = {
   PositiveIntegerValidator,
-  LikeValidator
+  LikeValidator,
+  ClassicValidator
 }

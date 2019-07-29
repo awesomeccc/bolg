@@ -20,14 +20,14 @@ class ArtDao {
 
   async getDetail(uid) {
       const {
-          Favor
+        FavorDao
       } = require('./favor')
-      const art = await Art.getData(this.art_id, this.type)
+      const art = await ArtDao.getData(this.art_id, this.type)
       if (!art) {
           throw new global.errs.NotFound()
       }
 
-      const like = await Favor.userLikeIt(
+      const like = await FavorDao.userLikeIt(
           this.art_id, this.type, uid)
       // art.setDataValue('like_status',like)
       return {
@@ -53,7 +53,7 @@ class ArtDao {
           }
 
           key = parseInt(key)
-          arts.push(await Art._getListByType(ids, key))
+          arts.push(await ArtDao._getListByType(ids, key))
       }
 
       return flatten(arts)
@@ -109,7 +109,7 @@ class ArtDao {
           case 400:
               const {
                   Book
-              } = require('./book')
+              } = require('../models/book')
               art = await Book.scope(scope).findOne(finder)
               if(!art){
                   art = await Book.create({
@@ -120,10 +120,10 @@ class ArtDao {
           default:
               break
       }
-      // if (art && art.image) {
-      //     let imgUrl = art.dataValues.image
-      //     art.dataValues.image = global.config.host + imgUrl
-      // }
+    //   if (art && art.image) {
+    //       let imgUrl = art.dataValues.image
+    //       art.dataValues.image = global.config.host + imgUrl
+    //   }
       return art
   }
 }
