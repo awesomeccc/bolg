@@ -68,6 +68,23 @@ const menus = [
           icon: "md-list"
         }
       ]
+    },
+    {
+      name: "图书管理",
+      path: "book",
+      icon: "ios-book",
+      children: [
+        {
+          name: "图书列表",
+          path: "/book",
+          icon: "md-list"
+        },
+        {
+          name: "添加图书",
+          path: "/addbooks",
+          icon: "md-list"
+        }
+      ]
     }
 
   ];

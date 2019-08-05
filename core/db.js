@@ -48,7 +48,7 @@ sequelize.sync({
 Model.prototype.toJSON= function(){
     // let data = this.dataValues
     let data = clone(this.dataValues)
-    console.log(data)
+    //console.log(data)
     unset(data, 'updated_at')
     unset(data, 'deleted_at')
 

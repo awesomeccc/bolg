@@ -16,7 +16,8 @@ const {
 const {
     PositiveIntegerValidator,
     SearchValidator,
-    AddShortCommentValidator
+    AddShortCommentValidator,
+    BookValidator
 } = require('../../validators/book')
 
 const {success} = require('../../lib/helper')
@@ -29,10 +30,19 @@ const router = new Router({
     prefix: '/v1/book'
 })
 
+const AUTH_ADMIN = 16;
+
 router.get('/hot_list', async (ctx, next) => {
-    console.log(HotBookDao)
-    const books = await HotBookDao.getAll()
-    ctx.body = books
+   // console.log(HotBookDao)
+   const {page} = ctx.query;
+   console.log(ctx.query)
+   if(page){
+   ctx.body =  await HotBookDao.getAll(page)
+   }else {
+    ctx.body = await HotBookDao.getAll()
+   }
+   
+   // ctx.body = books
 })
 
 router.get('/:id/detail', async ctx => {
@@ -84,7 +94,57 @@ router.get('/:book_id/short_comment', new Auth().m, async ctx=>{
     }
 })
 
+router.post('/add/book', new Auth(AUTH_ADMIN).m, async (ctx) => {
 
+    // 通过验证器校验参数是否通过
+    const v = await new BookValidator().validate(ctx);
+
+    // 创建文章
+    await HotBookDao.createBook(v);
+
+    // 返回结果
+    ctx.response.status = 200;
+    success();
+});
+
+
+/**
+ * 删除书籍
+ */
+router.delete('/:id', new Auth(AUTH_ADMIN).m, async (ctx) => {
+
+    // 通过验证器校验参数是否通过
+    const v = await new PositiveIntegerValidator().validate(ctx);
+
+    // 获取分类ID参数
+    const id = v.get('path.id');
+    // 删除分类
+    await HotBookDao.destroyBook(id);
+
+    ctx.response.status = 200;
+    ctx.body = {
+        id,
+        message: "删除成功"
+    }
+})
+
+/**
+ * 更新书籍
+ */
+
+router.put('/book/:id', new Auth(AUTH_ADMIN).m, async (ctx) => {
+
+    // 通过验证器校验参数是否通过
+    const v = await new PositiveIntegerValidator().validate(ctx);
+
+    // 获取书籍ID
+    const id = v.get('path.id');
+    // 更新文章
+    await ArticleDao.updateBook(id, v);
+
+    ctx.response.status = 200;
+    ctx.body = res.success('更新书籍成功');
+})
 router.get('/hot_keyword', async ctx => {
     ctx.body = {
         'hot': ['Python',

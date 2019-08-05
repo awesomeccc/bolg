@@ -1,26 +1,25 @@
 {
   "name": "nodejs-koa2-blog",
   "version": "1.0.0",
-  "description": "Node.js + Koa2 + MySQL + Vue.js 实战开发一套完整个人博客项目网站",
+  "description": "Node.js + Koa2 + MySQL + Vue.js 开发一套博客&&微信小程序前后端",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/liangfengbo/nodejs-koa2-blog.git"
+    "type": "git"
+ 
   },
   "keywords": [
     "nodejs",
     "koa2"
   ],
-  "author": "https://github.com/liangfengbo",
+  "author": "cc",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/liangfengbo/nodejs-koa2-blog/issues"
+   
   },
-  "homepage": "https://github.com/liangfengbo/nodejs-koa2-blog#readme",
   "dependencies": {
     "@koa/cors": "^3.0.0",
     "axios": "^0.18.0",

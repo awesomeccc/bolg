@@ -10,7 +10,8 @@ HotBook.init({
     index: Sequelize.INTEGER,
     image: Sequelize.STRING,
     author: Sequelize.STRING,
-    title: Sequelize.STRING
+    title: Sequelize.STRING,
+    summary: Sequelize.STRING
 },{
     sequelize,
     tableName:'hot_book'

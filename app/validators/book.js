@@ -53,8 +53,21 @@ class AddShortCommentValidator extends PositiveIntegerValidator {
   }
 }
 
+
+class BookValidator extends LinValidator {
+    constructor() {
+        super();
+
+        this.title = [new Rule("isLength", "title不能为空", {min: 1})];
+        this.author = [new Rule("isLength", "author不能为空", {min: 1})];
+        this.image = [new Rule("isLength", "image不能为空", {min: 1})];
+        this.summary = [new Rule("isLength", "summary不能为空", {min: 1})];
+    }
+}
+
 module.exports = {
   PositiveIntegerValidator,
   SearchValidator,
-  AddShortCommentValidator
+  AddShortCommentValidator,
+  BookValidator
 }

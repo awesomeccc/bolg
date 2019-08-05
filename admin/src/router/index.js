@@ -87,6 +87,18 @@ const routers = [
         }
       },
       {
+        path: 'book',
+        name: 'book',
+        meta: {module: "/book", group: "book", title: '分类 - 图书'},
+        component: (resolve) => require(['../views/book/BookList.vue'], resolve),
+      },
+      {
+        path: 'addbooks',
+        name: 'addbooks',
+        meta: {module: "/addbooks", group: "addbooks", title: '分类 - 图书'},
+        component: (resolve) => require(['../views/book/BookAdd.vue'], resolve),
+      },
+      {
         //todo: 404
         path: '*',
         name: '404',
@@ -95,6 +107,7 @@ const routers = [
           require(['../views/404.vue'], resolve);
         }
       }
+
     ]
   }
 ];

@@ -19,7 +19,7 @@ Vue.use(iView);
 Vue.use(mavonEditor);
 
 Vue.use(VueLocalStorage, {
-  namespace: 'boblog-'
+  namespace: 'cc-'
 });
 
 // 路由配置
