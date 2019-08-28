@@ -47,8 +47,8 @@ GET    /comments/:id
     "errorCode": 0,
     "data": {
         "id": 10,
-        "nickname": "梁凤波",
-        "email": "itbo@163.com",
+        "nickname": "cc",
+        "email": "cc23@163.com",
         "content": "今夜一起学习Node.js，9点Github不见不散！",
         "article_id": "6",
         "parent_id": 0,
@@ -75,14 +75,14 @@ GET    /category
         "data": [
             {
                 "id": 10,
-                "nickname": "梁凤波",
+                "nickname": "cc",
                 "content": "今夜一起学习Node.js，9点Github不见不散！",
                 "article_id": "6",
                 "parent_id": 0
             },
             {
                 "id": 9,
-                "nickname": "bobobo",
+                "nickname": "cccccc",
                 "content": "koa2框架入门",
                 "article_id": "3",
                 "parent_id": 0
@@ -173,7 +173,7 @@ desc | 排序，默认最新：created_at，浏览次数：browse | 否
         "data": [
             {
                 "id": 10,
-                "nickname": "梁凤波",
+                "nickname": "cc",
                 "content": "今夜一起学习Node.js，9点Github不见不散！",
                 "article_id": "6",
                 "parent_id": 0,

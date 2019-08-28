@@ -164,9 +164,9 @@ comments_list | 文章关联的评论
             {
                 "id": 6,
                 "title": "今夜一起学习Node.js吗？?",
-                "author": "梁凤波",
+                "author": "cc",
                 "content": "今夜一起学习Node.js，9点Github不见不散！",
-                "cover": "http://cdn.boblog.com/JS.png",
+                "cover": "http://cdn.XXXX.com/JS.png",
                 "category_id": "2",
                 "browse": 3,
                 "created_at": "2019-06-14T12:41:15.000Z",
