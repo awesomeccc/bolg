@@ -85,6 +85,40 @@ const menus = [
           icon: "md-list"
         }
       ]
+    },
+    {
+      name: "音乐管理",
+      path: "",
+      icon: "ios-headset",
+      children: [
+        {
+          name: "图书列表",
+          path: "/book",
+          icon: "md-list"
+        },
+        {
+          name: "添加图书",
+          path: "/addbooks",
+          icon: "md-list"
+        }
+      ]
+    },
+    {
+      name: "电影管理",
+      path: "",
+      icon: "ios-desktop",
+      children: [
+        {
+          name: "图书列表",
+          path: "/book",
+          icon: "md-list"
+        },
+        {
+          name: "添加图书",
+          path: "/addbooks",
+          icon: "md-list"
+        }
+      ]
     }
 
   ];

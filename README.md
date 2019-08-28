@@ -1,8 +1,8 @@
-<p align="center"><a href="http://www.boblog.com" target="_blank" rel="noopener noreferrer"><img width="234" src="http://images.boblog.com/BOBLOG-03.png" alt="logo"></a></p>
+
 
 ## 这是个什么的项目？
 
-使用 Node.js + Koa2 + MySQL + Vue.js 实战开发一套完整个人博客项目网站。博客线上地址：[www.boblog.com](http://www.boblog.com)
+使用 Node.js + Koa2 + MySQL + Vue.js 实战开发一套完整个人博客+小程序项目网站。
 
 ## 解决了什么问题？
 - 服务端：使用 Node.js 的 Koa2 框架二次开发 Restful API。
@@ -21,6 +21,7 @@
     - 文章
     - 文章分类
     - 评论文章
+    - 微信小程序后台
 - 前端博客网站 Vue.js
 - 后台管理系统 Vue.js
 
@@ -36,17 +37,20 @@
 - nodemon 修改文件自动重启
 - 前后端分离
 - 使用 Vue.js 搭建前端网站和后台管理系统
+- 完整的微信小程序(测试)和后台管理
+- Jsonp音乐数据获取
 
 ## 如何使用和学习？
 
 ### 数据库
-启动项目前一定要在创建好 `boblog` 数据库。
+启动项目前一定要在创建好 `ccblog` 数据库。
+在config里面配置好appId 和 appSecret
 ```
 # 登录数据库
 $ mysql -uroot -p密码
 
 # 创建 wxapp 数据库
-$ CREATE DATABASE IF NOT EXISTS boblog DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+$ CREATE DATABASE IF NOT EXISTS ccblog DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ### 克隆项目
@@ -57,9 +61,10 @@ $ CREATE DATABASE IF NOT EXISTS boblog DEFAULT CHARACTER SET utf8mb4 COLLATE utf
 
 ```
 # 克隆项目代码
-$ git clone https://github.com/liangfengbo/nodejs-koa-blog.git
+$ git clone https://github.com/awesomeccc/bolg.git
 
 # 进入koa项目根目录
+
 $ cd nodejs-koa-blog
 
 # 安装包
@@ -79,7 +84,13 @@ $ npm run dev
 1. 在根目录下进入admin项目：cd admin，
 2. 安装包，执行: npm install 命令，
 3. 启动服务: npm run dev; 浏览器打开：http://localhost:8083/ 即可以访问。
+
+// 微信小程序使用
+1. 在根目录下进入mini-wx项目：cd mini-wx，
+2. 安装包，执行: npm install 命令，
+3. 启动服务:在微信开发者工具下即可以访问。
 ```
+
 
 ### 接口说明（重要）
 项目的所有接口文档都这里，可以逐个文档看。
@@ -88,14 +99,8 @@ $ npm run dev
 - [分类接口文档说明](./doc/category.md)
 - [评论接口文档说明](./doc/comments.md)
 
-## License
-
-项目已实现管理员、权限管理、文章、分类、评论等接口，前端模板网站和后台管理系统。自己可以根据项目代码学习，可以到 postman 软件中测试API或学习。
-
-喜欢或对你有帮助的话，请你点一个星星 <strong style='color:red;'>star</strong> 鼓励我，或者您有更好的建议和意见，请提出来告知我，可以留言 [Issues](https://github.com/liangfengbo/nodejs-koa-blog/issues/new)。希望能够帮助到你学习！Thanks！
-
-[MIT](https://github.com/liangfengbo/nodejs-koa-blog/blob/master/LICENSE), by 梁凤波
-
 
 ## 项目参考学习资料
 - [《纯正商业级应用－Node.js Koa2开发微信小程序服务端》](https://s.imooc.com/SHHXs2R), by 慕课网：7七月老师
+
+-[MIT](https://github.com/liangfengbo/nodejs-koa-blog/blob/master/LICENSE), by 梁凤波
