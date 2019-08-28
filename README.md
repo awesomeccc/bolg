@@ -9,7 +9,7 @@
 
 ### 后台管理
 - 文章创建
-<img  src="https://github.com/awesomeccc/bolg/blob/master/static/screenShots/articleCreate.png?raw=true" alt="Vue logo">
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/articleCreate.png?raw=true)
 - 图书列表
 ![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/bookList.png?raw=true)
 ### 前端界面
