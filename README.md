@@ -4,6 +4,29 @@
 
 使用 Node.js + Koa2 + MySQL + Vue.js 实战开发一套完整个人博客+小程序项目网站。
 
+
+## 项目部分截图
+
+### 后台管理
+- 文章创建
+<img  src="https://github.com/awesomeccc/bolg/blob/master/static/screenShots/articleCreate.png?raw=true" alt="Vue logo">
+- 图书列表
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/bookList.png?raw=true)
+### 前端界面
+- 网站首页
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/blog.png?raw=true)
+- 音乐
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/music.png?raw=true)
+- 音乐播放
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/musicPlay.png?raw=true)
+### 小程序
+- 小程序test
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/mini-test.png?raw=true)
+- 小程序
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/mini-wx.png?raw=true)
+### 数据库
+![](https://github.com/awesomeccc/bolg/blob/master/static/screenShots/mysql.png?raw=true)
+
 ## 解决了什么问题？
 - 服务端：使用 Node.js 的 Koa2 框架二次开发 Restful API。
 - 前端：Vue.js 打造了前端网站和后台管理系统。
@@ -43,20 +66,20 @@
 ## 如何使用和学习？
 
 ### 数据库
-启动项目前一定要在创建好 `ccblog` 数据库。
+启动项目前一定要在创建好 `ccbolg` 数据库。(bolg拼错了,需要的话自行修改)
 在config里面配置好appId 和 appSecret
 ```
 # 登录数据库
 $ mysql -uroot -p密码
 
 # 创建 wxapp 数据库
-$ CREATE DATABASE IF NOT EXISTS ccblog DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+$ CREATE DATABASE IF NOT EXISTS ccbolg DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ### 克隆项目
 首先使克隆项目，然后进入项目根目录使用命令安装包，最后命令启动项目，代码会根据模型自动创建数据库表的。
 
-根目录都是 Node.js + Koa2 API开发源代码，根目录下的 web 文件夹下都是前端网站项目源代码，根目录下的 admin 文件夹下都是后台管理系统的源代码。
+根目录都是 Node.js + Koa2 API开发源代码，根目录下的 web 文件夹下都是前端网站项目源代码，根目录下的 admin 文件夹下都是后台管理系统的源代码,mini-test是小程序的测试接口, mini-wx 小程序源码目录
 
 
 ```
@@ -98,9 +121,11 @@ $ npm run dev
 - [文章接口文档说明](./doc/article.md)
 - [分类接口文档说明](./doc/category.md)
 - [评论接口文档说明](./doc/comments.md)
+- 小程序(待完善)
+- 音乐(待完善))
 
 
 ## 项目参考学习资料
 - [《纯正商业级应用－Node.js Koa2开发微信小程序服务端》](https://s.imooc.com/SHHXs2R), by 慕课网：7七月老师
 
--[MIT](https://github.com/liangfengbo/nodejs-koa-blog/blob/master/LICENSE), by 梁凤波
+- [梁凤波的开源项目](https://github.com/liangfengbo/nodejs-koa-blog)
