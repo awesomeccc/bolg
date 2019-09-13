@@ -2,6 +2,12 @@ import jsonp from './common/jsonp'
 import {commonParams, options} from './config'
 import axios from 'axios'
 
+const ajaxUrl = process.env.NODE_ENV === 'development'
+  // 测试环境api接口
+  ? 'http://localhost:3000/v1'
+  // 线上环境api接口
+  : 'http://49.235.152.59:3000/v1';
+
 export function getRecommend() {
   const url = 'https://c.y.qq.com/musichall/fcgi-bin/fcg_yqqhomepagerecommend.fcg'
 
@@ -15,7 +21,8 @@ export function getRecommend() {
 }
 
 export function getDiscList() {
-  const url = 'http://localhost:3000/v1/song/getDiscList'
+  const url = ajaxUrl + '/song/getDiscList'
+
 
   const data = Object.assign({}, commonParams, {
     platform: 'yqq',
@@ -38,7 +45,7 @@ export function getDiscList() {
 
 export function getSongList(disstid) {
   // const url = 'https://c.y.qq.com/qzone/fcg-bin/fcg_ucc_getcdinfo_byids_cp.fcg'
-  const url = 'http://localhost:3000/v1/song/getSongList'
+  const url = ajaxUrl + '/song/getSongList'
   const data = Object.assign({}, commonParams, {
     disstid,
     type: 1,
@@ -59,7 +66,7 @@ export function getSongList(disstid) {
 }
 
 export function getplaysongvkey(songmid) {
-  const url = 'http://localhost:3000/v1/song/getplaysongvkey'
+  const url =  ajaxUrl + '/song/getplaysongvkey'
   const data = Object.assign({}, commonParams, {
     // -: 'getplaysongvkey7257571376863041',
     g_tk: 5381,
@@ -82,7 +89,7 @@ export function getplaysongvkey(songmid) {
 }
 
 export function getLyric(mid) {
-  const url = 'http://localhost:3000/v1/song/lyric'
+  const url =  ajaxUrl + '/song/lyric'
 
   const data = Object.assign({}, commonParams, {
     songmid: mid,

@@ -19,7 +19,7 @@
 <script>
   export default {
     created() {
-      document.title = `波博客 - boblog.com`
+      document.title = `ccblog博客 - ccblog.com`
     }
   }
 </script>

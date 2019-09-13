@@ -26,6 +26,8 @@
               <Button :loading="buttonLoading" @click="handleSubmit" type="primary" long>登录</Button>
             </FormItem>
           </Form>
+          <div>体验帐号:329694993@qq.com</div>
+          <div>密码:l12345678</div>
         </div>
       </Card>
     </div>

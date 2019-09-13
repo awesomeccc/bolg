@@ -98,6 +98,7 @@
     margin-bottom: 24px;
     background: #fff;
     border-radius: 5px;
+    margin-top: 65px;
 
     & .category-title {
       display: flex;

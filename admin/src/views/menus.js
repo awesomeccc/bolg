@@ -88,36 +88,36 @@ const menus = [
     },
     {
       name: "音乐管理",
-      path: "",
+      path: "music",
       icon: "ios-headset",
       children: [
         {
-          name: "图书列表",
-          path: "/book",
+          name: "音乐管理",
+          path: "/403",
           icon: "md-list"
         },
-        {
-          name: "添加图书",
-          path: "/addbooks",
-          icon: "md-list"
-        }
+        // {
+        //   name: "添加图书",
+        //   path: "/addbooks",
+        //   icon: "md-list"
+        // }
       ]
     },
     {
       name: "电影管理",
-      path: "",
+      path: "movie",
       icon: "ios-desktop",
       children: [
         {
-          name: "图书列表",
-          path: "/book",
+          name: "电影列表",
+          path: "/403",
           icon: "md-list"
         },
-        {
-          name: "添加图书",
-          path: "/addbooks",
-          icon: "md-list"
-        }
+        // {
+        //   name: "添加图书",
+        //   path: "/addbooks",
+        //   icon: "md-list"
+        // }
       ]
     }
 

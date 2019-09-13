@@ -11,12 +11,12 @@
         v-model="keyword"
       ></el-input>
       <!-- <button @click = "get">123</button> -->
-      <ul>
+      <!-- <ul>
         <li v-for="item in srcList" :key="item.id" v-show="keyword">
           <a class="srcline" :href=item.src>{{'点击跳转到: ' + item.title }}
           </a>
         </li>
-      </ul>
+      </ul> -->
     </div>
   </div>
 </template>

@@ -104,6 +104,7 @@
 
     & .content {
       box-sizing: border-box;
+      margin-top: 96px;
       padding: 32px;
       position: relative;
       width: 100%;

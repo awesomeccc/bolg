@@ -1,6 +1,7 @@
 const routers = [
   {
     path: '/login',
+    name: 'login',
     meta: {
       title: "登录",
       noAuth: true
@@ -9,6 +10,7 @@ const routers = [
   },
   {
     path: '/',
+    name: 'admin',
     component(resolve) {
       require(['../views/layout.vue'], resolve);
     },

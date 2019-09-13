@@ -158,7 +158,9 @@ export default {
 .header {
   width: 100%;
   text-align: center;
-  line-height: 30px;
+  height: 35px;
+  line-height: 35px;
+  /* height: 20px; */
 }
 .album {
   text-align: center;
@@ -169,7 +171,8 @@ export default {
   padding: relative;
 }
 .img-container {
-  margin: 60px;
+  margin: 40px 60px 40px 60px;
+  height: 460px;
 }
 /* .background {
   position: absolute;

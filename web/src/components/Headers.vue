@@ -145,18 +145,18 @@
 <style lang="scss" scoped>
   .header {
     width: 100%;
-    height: 96px;
     z-index: 5000;
     background: #fff;
     box-shadow: 4px 4px 4px rgba(0, 0, 0, .03);
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f0f0f0;  
+    top:0;
   }
 
   .header-box {
     width: 70%;
     box-sizing: border-box;
     margin: 0 auto;
-    height: 96px;
+    height: 60px;
     display: flex;
     align-items: center;
   }

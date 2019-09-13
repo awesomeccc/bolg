@@ -32,10 +32,11 @@ export default {
 </script>
 <style lang="scss">
 .headers {
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   position: relative;
-  margin-bottom: 25px
+
+
 }
 .left {
   position: absolute;
@@ -49,16 +50,18 @@ export default {
   // height: 880PX;
   height: 780px;
   margin: 0px 35%;
+  // padding-top: 65px;
   background-color: green;
   padding-bottom: 15px;
 }
 .right {
   position: absolute;
-  width: 30%;
-  height: 750px;
+  width: 28%;
+  height: 780px;
   right: 0;
   top: 0;
   background-color: skyblue;
   overflow: auto ;
+  margin-top: 5px;
 }
 </style>

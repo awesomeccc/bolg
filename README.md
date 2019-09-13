@@ -128,6 +128,6 @@ $ npm run dev
 ## 项目参考学习资料
 - [《纯正商业级应用－Node.js Koa2开发微信小程序服务端》](https://s.imooc.com/SHHXs2R), by 慕课网：7七月老师
 
-- [梁凤波的开源项目](https://github.com/liangfengbo/nodejs-koa-blog)
+- [梁凤ccblog的开源项目](https://github.com/liangfengbo/nodejs-koa-blog)
                 
                 ---

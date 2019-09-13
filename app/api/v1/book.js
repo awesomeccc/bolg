@@ -148,13 +148,13 @@ router.put('/book/:id', new Auth(AUTH_ADMIN).m, async (ctx) => {
 router.get('/hot_keyword', async ctx => {
     ctx.body = {
         'hot': ['Python',
-            '哈利·波特',
+            '哈利·ccblog特',
             '村上春树',
             '东野圭吾',
             '白夜行',
             '韩寒',
             '金庸',
-            '王小波'
+            '王小ccblog'
         ]
     }
     // 搜索次数最多

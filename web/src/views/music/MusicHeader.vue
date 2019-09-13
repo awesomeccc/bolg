@@ -14,7 +14,7 @@ import Swiper from "../../components/music/Swiper.vue";
 import Recommend from "../../components/music/Recommend.vue";
 
 export default {
-  name: "HeadersAll",
+  name: "HeadersAl",
   data(){
     return {
       keywordData: ''
@@ -23,6 +23,10 @@ export default {
   methods: {
     
   },
+    // created:function () {
+    //         this.$emit('public_footer', false);
+    //     }
+
   components: {
    Recommend,
    Swiper

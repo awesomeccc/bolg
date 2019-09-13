@@ -18,7 +18,7 @@
     data() {
       return {
         linkList: [
-          {name: 'Github', href: 'https://github.com/awesomecc'},
+          {name: 'Github', href: 'https://github.com/awesomeccc'},
           {name: '慕课网', href: 'https://www.imooc.com/'}
         ]
       }

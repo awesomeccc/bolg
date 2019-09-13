@@ -26,7 +26,7 @@ export default {
     _getRecommend() {
       getRecommend().then(res => {
         this.recommends = res.data.slider;
-        console.log(res.data);
+      //  console.log(res.data);
       });
     }
   }
@@ -48,6 +48,10 @@ export default {
 
 .el-carousel__item:nth-child(2n + 1) {
   background-color: #d3dce6;
+}
+
+.el-carousel_container {
+  height: 300px;
 }
 
 .needsclick {

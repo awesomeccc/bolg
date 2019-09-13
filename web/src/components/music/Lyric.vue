@@ -91,6 +91,7 @@ export default {
   justify-content: space-around;
   height: 100%;
   flex-grow: 1; */
+  width: 25%
 }
 .lyric-item {
   text-align: center;

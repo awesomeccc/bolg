@@ -39,6 +39,13 @@ export default new Router({
       }
     },
     {
+      // 小程序
+      path: '/minip',
+      component(resolve) {
+        require(['../views/minipro/index.vue'], resolve);
+      }
+    },
+    {
       // 关于我
       path: '/keyword',
       component(resolve) {
@@ -98,7 +105,14 @@ export default new Router({
           require(['../views/article/list.vue'], resolve);
         }
       }, ]
-    }
+    },
+    {
+      // 文章列表
+      path: '*',
+      component(resolve) {
+        require(['../views/article/list.vue'], resolve);
+      }
+    },
   ]
   // routes: [
   //   { path: '/', 

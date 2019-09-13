@@ -1,0 +1,82 @@
+<template>
+  <section class="author">
+    <article class="item">
+      <h1 class="logo">
+        <img src="../../assets/images/mini.jpg" alt="小程序">
+      </h1>
+    </article>
+    <article class="text">
+      <p class="content">扫描二维码后,在右上角打开调试进行体验</p>
+      <!-- <p>博客的愿景：和更多的朋友一起学习进步。</p>
+      <p>博客的风格：简约至上。</p> -->
+    </article>
+    <article class="end">
+      <!-- <p>最后，祝大家每天开心，每天幸福！</p> -->
+    </article>
+  </section>
+</template>
+
+<script>
+  export default {
+    created() {
+      document.title = `ccblog博客 - ccblog.com`
+    }
+  }
+</script>
+
+<style scoped lang="scss">
+  .author {
+    box-sizing: border-box;
+    width: 70%;
+    min-height: 80vh;
+    margin: 24px auto;
+    padding-bottom: 24px;
+    background-color: white;
+  }
+
+  .item {
+    width: 100%;
+    padding: 48px 0;
+    text-align: center;
+    background: white;
+  }
+
+  .logo {
+    width: 360px;
+    margin: 0 auto;
+
+    & img {
+      width: 100%;
+    margin-top: 25px;
+    }
+  }
+
+  a {
+    color: #409EFF;
+  }
+
+  .text {
+    padding: 0 24px 24px;
+    line-height: 42px;
+    font-size: 20px;
+    color: #666;
+    text-indent: 2em;
+  }
+
+  .content {
+    padding-top: 24px;
+  }
+
+  .end {
+    line-height: 42px;
+    font-size: 20px;
+    color: #666;
+    text-indent: 2em;
+  }
+
+  @media screen and (min-width: 200px) and (max-width: 750px) {
+    .author {
+      width: 100%;
+    }
+  }
+</style>

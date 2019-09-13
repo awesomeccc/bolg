@@ -228,6 +228,13 @@ export default {
 
 .item {
   margin-bottom: 18px;
+  cursor: pointer;
+}
+.item:hover {
+    background: #ffffff;
+    border-color: #aaaaaa;
+    color: blueviolet;
+    position: relative;
 }
 
 .clearfix:before,
